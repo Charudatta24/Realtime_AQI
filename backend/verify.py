@@ -1,6 +1,6 @@
 import urllib.request, json
 
-BASE = "http://localhost:8000"
+BASE = "https://realtime-aqi-1u9g.onrender.com/"
 tests = [
     ("Cities List",         "/api/cities"),
     ("Grid Data Delhi",     "/api/metrics/grid-data?city=Delhi"),

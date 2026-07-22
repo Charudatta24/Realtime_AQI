@@ -15,7 +15,7 @@ export default function EnforcementPanel({ city, onDispatchSuccess }) {
   useEffect(() => {
     if (!city) return;
     setLoadingRecs(true);
-    fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}/api/metrics/enforcement?city=${city}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com/'}/api/metrics/enforcement?city=${city}`)
       .then(r => r.json())
       .then(d => setRecommendations(d.recommendations || []))
       .catch(e => console.error('Enforcement fetch error:', e))
@@ -42,7 +42,7 @@ export default function EnforcementPanel({ city, onDispatchSuccess }) {
     if (!inspectorName || !vehiclePlate) return;
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}/api/dispatch`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com/'}/api/dispatch`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

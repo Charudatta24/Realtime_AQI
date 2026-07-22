@@ -28,7 +28,7 @@ import EnforcementPanel   from '../components/EnforcementPanel';
 import AdvisoryPanel      from '../components/AdvisoryPanel';
 import InterventionPanel  from '../components/InterventionPanel';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com/';
 const CITIES   = ['Delhi', 'Mumbai', 'Bengaluru', 'Chennai', 'Kolkata'];
 const TABS     = [
   { id: 'map',           label: 'Live Map',        icon: MapPin     },

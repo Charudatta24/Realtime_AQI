@@ -16,7 +16,7 @@ export default function AdvisoryPanel({ city, selectedCell, timestamp }) {
       setLoading(true);
       try {
         const timeParam = timestamp ? `&time=${timestamp}` : '';
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8000'}/api/metrics/advisories?city=${city}&row=${selectedCell.row}&col=${selectedCell.col}${timeParam}`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com/'}/api/metrics/advisories?city=${city}&row=${selectedCell.row}&col=${selectedCell.col}${timeParam}`);
         const data = await res.json();
         setAdvisory(data);
       } catch (err) {

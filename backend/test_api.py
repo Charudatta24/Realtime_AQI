@@ -16,7 +16,7 @@ def test_api():
     try:
         # 1. Test /api/cities
         print("\n[Test 1] Testing /api/cities ...")
-        with urllib.request.urlopen("http://localhost:8000/api/cities") as response:
+        with urllib.request.urlopen("https://realtime-aqi-1u9g.onrender.com//api/cities") as response:
             data = json.loads(response.read().decode())
             print("Cities response:", [c["name"] for c in data["cities"]])
             assert len(data["cities"]) == 5, "Should return 5 configured cities"
@@ -24,7 +24,7 @@ def test_api():
 
         # 2. Test /api/metrics/grid-data
         print("\n[Test 2] Testing /api/metrics/grid-data?city=Delhi ...")
-        with urllib.request.urlopen("http://localhost:8000/api/metrics/grid-data?city=Delhi") as response:
+        with urllib.request.urlopen("https://realtime-aqi-1u9g.onrender.com//api/metrics/grid-data?city=Delhi") as response:
             data = json.loads(response.read().decode())
             print("Grid Dimensions:", len(data["grid_aqi"]), "x", len(data["grid_aqi"][0]))
             print("Station count:", len(data["stations"]))
@@ -35,7 +35,7 @@ def test_api():
 
         # 3. Test /api/metrics/attribution
         print("\n[Test 3] Testing /api/metrics/attribution?city=Delhi&row=5&col=5 ...")
-        with urllib.request.urlopen("http://localhost:8000/api/metrics/attribution?city=Delhi&row=5&col=5") as response:
+        with urllib.request.urlopen("https://realtime-aqi-1u9g.onrender.com//api/metrics/attribution?city=Delhi&row=5&col=5") as response:
             data = json.loads(response.read().decode())
             print("Attributions:", data["attributions"])
             print("Confidence:", data["confidence"], "%")
@@ -44,7 +44,7 @@ def test_api():
 
         # 4. Test /api/metrics/forecast
         print("\n[Test 4] Testing /api/metrics/forecast?city=Delhi&hours=24 ...")
-        with urllib.request.urlopen("http://localhost:8000/api/metrics/forecast?city=Delhi&hours=24") as response:
+        with urllib.request.urlopen("https://realtime-aqi-1u9g.onrender.com//api/metrics/forecast?city=Delhi&hours=24") as response:
             data = json.loads(response.read().decode())
             print("Forecast metrics:", data["performance"])
             assert "model_rmse" in data["performance"], "Performance must include model_rmse"
@@ -52,7 +52,7 @@ def test_api():
 
         # 5. Test /api/metrics/enforcement
         print("\n[Test 5] Testing /api/metrics/enforcement?city=Delhi ...")
-        with urllib.request.urlopen("http://localhost:8000/api/metrics/enforcement?city=Delhi") as response:
+        with urllib.request.urlopen("https://realtime-aqi-1u9g.onrender.com//api/metrics/enforcement?city=Delhi") as response:
             data = json.loads(response.read().decode())
             print("Recommendations counts:", len(data["recommendations"]))
             assert len(data["recommendations"]) <= 5, "Should return top 5 hotspots"
@@ -60,7 +60,7 @@ def test_api():
 
         # 6. Test /api/metrics/agents
         print("\n[Test 6] Testing /api/metrics/agents?city=Delhi ...")
-        with urllib.request.urlopen("http://localhost:8000/api/metrics/agents?city=Delhi") as response:
+        with urllib.request.urlopen("https://realtime-aqi-1u9g.onrender.com//api/metrics/agents?city=Delhi") as response:
             data = json.loads(response.read().decode())
             print("Agent summary agents:", [a["agent"] for a in data["agents"]])
             assert "ForecastAgent" in [a["agent"] for a in data["agents"]], "Should include forecast agent"
@@ -68,7 +68,7 @@ def test_api():
 
         # 7. Test /api/metrics/digital-twin
         print("\n[Test 7] Testing /api/metrics/digital-twin?city=Delhi&scenario=road_closure ...")
-        with urllib.request.urlopen("http://localhost:8000/api/metrics/digital-twin?city=Delhi&scenario=road_closure") as response:
+        with urllib.request.urlopen("https://realtime-aqi-1u9g.onrender.com//api/metrics/digital-twin?city=Delhi&scenario=road_closure") as response:
             data = json.loads(response.read().decode())
             print("Digital twin baseline avg:", data["baseline_average_aqi"])
             assert data["scenario"] == "road_closure", "Scenario should be road_closure"
@@ -83,7 +83,7 @@ def test_api():
         }).encode('utf-8')
         
         req = urllib.request.Request(
-            "http://localhost:8000/api/dispatch", 
+            "https://realtime-aqi-1u9g.onrender.com//api/dispatch", 
             data=req_data, 
             headers={'Content-Type': 'application/json'}
         )

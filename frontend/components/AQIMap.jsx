@@ -4,7 +4,7 @@ import { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "https://realtime-aqi-1u9g.onrender.com/";
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "https://realtime-aqi-1u9g.onrender.com";
 
 function getAqiColor(aqi) {
   if (aqi <= 50) return "#00e400";
@@ -99,3 +99,5 @@ export default function AQIMap() {
     </div>
   );
 }
+
+

@@ -235,3 +235,5 @@ function aqi_color_class(aqi) {
   if (aqi <= 400) return 'text-red-400';
   return 'text-purple-400';
 }
+
+

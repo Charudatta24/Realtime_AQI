@@ -29,7 +29,7 @@ import {
 } from 'recharts';
 import { getAqiColor } from '../utils/aqi';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com/';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com';
 
 const TREND_ICONS = {
   improving: <ArrowUp className="w-3.5 h-3.5 text-emerald-400" />,
@@ -332,3 +332,5 @@ export default function ComparativeDashboard({ onCitySelect }) {
     </div>
   );
 }
+
+

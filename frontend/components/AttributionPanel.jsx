@@ -23,7 +23,7 @@ export default function AttributionPanel({ city, selectedCell, timestamp }) {
       setLoading(true);
       try {
         const timeParam = timestamp ? `&time=${timestamp}` : '';
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com/'}/api/metrics/attribution?city=${city}&row=${selectedCell.row}&col=${selectedCell.col}${timeParam}`);
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com'}/api/metrics/attribution?city=${city}&row=${selectedCell.row}&col=${selectedCell.col}${timeParam}`);
         const data = await res.json();
         setAttributionData(data);
       } catch (err) {
@@ -138,3 +138,5 @@ export default function AttributionPanel({ city, selectedCell, timestamp }) {
     </div>
   );
 }
+
+

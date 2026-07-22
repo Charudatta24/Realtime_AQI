@@ -20,9 +20,9 @@ export default function ForecastPanel({ city, selectedCell, currentAqi, timestam
         
         // Fetch 24, 48, 72 hours forecast in parallel
         const [res24, res48, res72] = await Promise.all([
-          fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com/'}/api/metrics/forecast?city=${city}&hours=24${timeParam}`),
-          fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com/'}/api/metrics/forecast?city=${city}&hours=48${timeParam}`),
-          fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com/'}/api/metrics/forecast?city=${city}&hours=72${timeParam}`)
+          fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com'}/api/metrics/forecast?city=${city}&hours=24${timeParam}`),
+          fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com'}/api/metrics/forecast?city=${city}&hours=48${timeParam}`),
+          fetch(`${process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com'}/api/metrics/forecast?city=${city}&hours=72${timeParam}`)
         ]);
 
         const data24 = await res24.json();
@@ -144,3 +144,5 @@ export default function ForecastPanel({ city, selectedCell, currentAqi, timestam
     </div>
   );
 }
+
+

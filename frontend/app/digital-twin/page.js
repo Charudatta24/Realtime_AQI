@@ -44,7 +44,8 @@ export default function DigitalTwinPage() {
   const fetchData = async (cityName) => {
     setLoading(true);
     try {
-      const res = await fetch(`https://realtime-aqi-1u9g.onrender.com/api/metrics/grid-data?city=${cityName}`);
+      const API_BASE = (process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com').replace(/\/+$/, '');
+      const res = await fetch(`${API_BASE}/api/metrics/grid-data?city=${cityName}`);
       const d   = await res.json();
       // Filter overlays by active layers
       setGridData({

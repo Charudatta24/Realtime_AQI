@@ -34,7 +34,7 @@ export default function InterventionPanel({ city }) {
     if (!city) return;
     setLoading(true);
     setData(null);
-    fetch(`https://realtime-aqi-1u9g.onrender.com//api/metrics/interventions?city=${city}`)
+    fetch(`https://realtime-aqi-1u9g.onrender.com/api/metrics/interventions?city=${city}`)
       .then(r => r.json())
       .then(d => setData(d))
       .catch(err => console.error('Interventions fetch error:', err))
@@ -43,7 +43,7 @@ export default function InterventionPanel({ city }) {
 
   const handleApprove = async (iv) => {
     try {
-      await fetch('https://realtime-aqi-1u9g.onrender.com//api/metrics/interventions/approve', {
+      await fetch('https://realtime-aqi-1u9g.onrender.com/api/metrics/interventions/approve', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ intervention_id: iv.id, approved_by: approverName, notes: '' })

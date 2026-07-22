@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Layers, Activity, Sparkles, Globe, RotateCcw } from 'lucide-react';
 import { getAqiColor } from '../utils/aqi';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com';
+const API_BASE = (process.env.NEXT_PUBLIC_API_BASE || 'https://realtime-aqi-1u9g.onrender.com').replace(/\/+$/, '');
 const SCENARIOS = [
   { key: 'road_closure', label: 'Road Closure' },
   { key: 'construction_restriction', label: 'Construction Restriction' },
@@ -138,5 +138,6 @@ export default function DigitalTwinPanel({ city }) {
     </div>
   );
 }
+
 
 

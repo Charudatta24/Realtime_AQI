@@ -237,3 +237,4 @@ function aqi_color_class(aqi) {
 }
 
 
+
